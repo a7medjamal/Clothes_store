@@ -1,3 +1,4 @@
+import 'package:clothes_store/features/home/widgets/size_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rate/rate.dart';
@@ -59,15 +60,55 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      _sizeButton('S', isSelected: _selectedSize == 'S'),
-                      SizedBox(height: 30),
-                      _sizeButton('M', isSelected: _selectedSize == 'M'),
-                      SizedBox(height: 30),
-                      _sizeButton('L', isSelected: _selectedSize == 'L'),
-                      SizedBox(height: 30),
-                      _sizeButton('XL', isSelected: _selectedSize == 'XL'),
-                      SizedBox(height: 30),
-                      _sizeButton('2XL', isSelected: _selectedSize == '2XL'),
+                      SizeButton(
+                        size: 'S',
+                        isSelected: _selectedSize == 'S',
+                        onSelect: (size) {
+                          setState(() {
+                            _selectedSize = size;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      SizeButton(
+                        size: 'M',
+                        isSelected: _selectedSize == 'M',
+                        onSelect: (size) {
+                          setState(() {
+                            _selectedSize = size;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      SizeButton(
+                        size: 'L',
+                        isSelected: _selectedSize == 'L',
+                        onSelect: (size) {
+                          setState(() {
+                            _selectedSize = size;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      SizeButton(
+                        size: 'XL',
+                        isSelected: _selectedSize == 'XL',
+                        onSelect: (size) {
+                          setState(() {
+                            _selectedSize = size;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      SizeButton(
+                        size: '2XL',
+                        isSelected: _selectedSize == '2XL',
+                        onSelect: (size) {
+                          setState(() {
+                            _selectedSize = size;
+                          });
+                        },
+                      ),
                     ],
                   ),
                 ],
@@ -306,35 +347,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _sizeButton(String size, {bool isSelected = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            _selectedSize = size;
-          });
-        },
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 18),
-          decoration: BoxDecoration(
-            color: isSelected ? Color(0xffe8323e) : Color(0xff2f2f2f),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Text(
-            size,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Audiowide',
-              fontSize: 14,
-            ),
-          ),
-        ),
       ),
     );
   }
